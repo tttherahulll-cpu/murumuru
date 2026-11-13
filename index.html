@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mūru Mūru | Pure Veg Vintage House Cafe · Indiranagar, Bengaluru</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #FBF8F1;
+            --bg-sand: #F2EBE0;
+            --bungalow-brown: #2A1E17;
+            --terracotta: #C2593F;
+            --terracotta-dark: #9E432C;
+            --sage: #3D6B52;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1EBE57;
+            --text-muted: #655850;
+            --white: #FFFFFF;
+            --shadow: 0 12px 32px rgba(42, 30, 23, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--bungalow-brown);
+            line-height: 1.65;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fraunces', serif;
+            letter-spacing: -0.01em;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(251, 248, 241, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(42, 30, 23, 0.08);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--bungalow-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--terracotta);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--bungalow-brown);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--terracotta);
+        }
+
+        .btn {
+            background-color: var(--terracotta);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--terracotta-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--bungalow-brown);
+            border: 1.5px solid var(--bungalow-brown);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bungalow-brown);
+            color: var(--white);
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--whatsapp);
+            color: var(--white);
+            padding: 0.85rem 1.35rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1001;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 5% 4.5rem;
+            background: linear-gradient(135deg, var(--bg-sand) 0%, var(--bg-cream) 100%);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .badges-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.3rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .badge-veg {
+            background-color: #E7F3EC;
+            color: var(--sage);
+        }
+
+        .hero h1 {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            height: 460px;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white);
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .floating-card strong {
+            display: block;
+            font-size: 1.05rem;
+            color: var(--bungalow-brown);
+        }
+
+        .floating-card span {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 660px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.7rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid rgba(42, 30, 23, 0.05);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-tag {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .menu-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .menu-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Story & Vibe */
+        .vibe-section {
+            background-color: var(--bg-sand);
+            border-radius: 32px;
+            margin: 0 5%;
+            padding: 4rem;
+        }
+
+        .vibe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .vibe-item {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .vibe-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .vibe-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .vibe-item p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* Visit Section */
+        .visit-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--bungalow-brown);
+            color: var(--white);
+            border-radius: 28px;
+            padding: 3.5rem;
+        }
+
+        .visit-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .service-tag {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .info-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-list strong {
+            color: #F2B89B;
+            display: block;
+        }
+
+        .visit-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .map-box{
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 330px;
+            background: #3D2E25;
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 330px;
+            border: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 5%;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(42, 30, 23, 0.08);
+            font-size: 0.92rem;
+        }
+
+        footer a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 860px) {
+            .hero, .visit-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+            nav {
+                display: none;
+            }
+            .floating-card {
+                position: static;
+                margin-top: 1rem;
+            }
+            .vibe-section {
+                padding: 2.5rem 1.5rem;
+            }
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                padding: 0.75rem 1.15rem;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Mūru <span>Mūru</span></a>
+        <nav>
+            <a href="#menu">Signature Menu</a>
+            <a href="#vibe">The Bungalow Vibe</a>
+            <a href="#visit">Visit Indiranagar</a>
+            <a href="https://instagram.com" target="_blank">@murumuru.blr</a>
+        </nav>
+        <a href="https://wa.me." target="_blank" class="btn btn-whatsapp">💬 Reserve on WhatsApp</a>
+    </header>
+
+    <section class="hero">
+        <div>
+            <div class="badges-row">
+                <span class="badge badge-veg">🌿 100% Pure Vegetarian & Vegan Friendly</span>
+                <span class="badge">✨ Women-Owned · Indiranagar</span>
+            </div>
+            <h1>A Vintage Bangalore House for Comfort Food & Craft Coffee.</h1>
+            <p>Tucked into a cozy old-school bungalow on 12th Cross, Indiranagar. Drop by for playful Indian fusion bites, specialty espresso pours, free Wi-Fi, and unhurried conversations.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me." target="_blank" class="btn btn-whatsapp">💬 Book / Order on WhatsApp</a>
+                <a href="#menu" class="btn btn-outline">Explore the Menu</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://unsplash.com" alt="Cozy vintage Bangalore cafe seating and specialty coffee at Muru Muru">
+            <div class="floating-card">
+                <strong>Open Daily: 11:30 AM – 11:30 PM</strong>
+                <span>₹400–800 for two · Dine-in, Pickup & Delivery</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="section-header">
+            <h2>House Favorites</h2>
+            <p>Thoughtfully crafted vegetarian comfort plates, nostalgic street-food twists, and signature specialty coffees.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <span class="menu-tag">Small Plates</span>
+                <h3>Three Cheese Sabudana Vada</h3>
+                <p>Crispy golden tapioca pearls stuffed with a molten three-cheese blend, served with house green chutney.</p>
+            </div>
+            <div class="menu-card">
+                <span class="menu-tag">Crowd Favorite</span>
+                <h3>Garlic Parmesan Mushroom Pops</h3>
+                <p>Bite-sized crispy button mushrooms tossed in roasted garlic butter, herbs, and aged vegetarian parmesan.</p>
+            </div>
+            <div class="menu-card">
+                <span class="menu-tag">Hearty Mains</span>
+                <h3>Donne Biryani & Mushroom Kebab</h3>
+                <p>Fragrant Bengaluru-style green masala donne biryani paired with smoky, char-grilled mushroom kebabs.</p>
+            </div>
+            <div class="menu-card">
+                <span class="menu-tag">Nostalgia Bowl</span>
+                <h3>Sharma Ji's Aloo Chaat & Pahadi Maggi</h3>
+                <p>Tangy spiced potato chaat and comforting mountain-style masala Maggi loaded with fresh veggies.</p>
+            </div>
+            <div class="menu-card">
+                <span class="menu-tag">Signature Coffee</span>
+                <h3>Sea Salt Maple Cappuccino</h3>
+                <p>Rich double-shot espresso balanced with steamed milk, pure maple sweetness, and a touch of flaky sea salt.</p>
+            </div>
+            <div class="menu-card">
+                <span class="menu-tag">Crafted Brews</span>
+                <h3>Creamy Raspberry Latte & Espresso Sunrise</h3>
+                <p>Velvety berry-infused iced lattes and bright citrus-espresso spritzers made for sunny Bengaluru afternoons.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vibe" class="vibe-section">
+        <div class="section-header">
+            <h2>The Mūru Mūru Experience</h2>
+            <p>More than just a cafe—a warm, inclusive neighborhood sanctuary housed inside a classic Indiranagar home.</p>
+        </div>
+        <div class="vibe-grid">
+            <div class="vibe-item">
+                <div class="vibe-icon">🏡</div>
+                <h3>Vintage Bungalow Charm</h3>
+                <p>Set in a charming old Bangalore house with breezy outdoor corners and sunlit indoor rooms.</p>
+            </div>
+            <div class="vibe-item">
+                <div class="vibe-icon">💻</div>
+                <h3>Work-Friendly with Wi-Fi</h3>
+                <p>Reliable free Wi-Fi, calm acoustic corners, and plenty of coffee refills for remote work days.</p>
+            </div>
+            <div class="vibe-item">
+                <div class="vibe-icon">🌱</div>
+                <h3>100% Pure Veg & Vegan</h3>
+                <p>Every dish is strictly vegetarian, with dedicated vegan-friendly coffee and food options.</p>
+            </div>
+            <div class="vibe-item">
+                <div class="vibe-icon">🌈</div>
+                <h3>Women-Owned & Inclusive</h3>
+                <p>Proudly women-owned, family-friendly, and LGBTQ+ welcoming for every guest who walks in.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit">
+        <div class="visit-container">
+            <div class="visit-info">
+                <h2>Come Hang Out</h2>
+                <div class="service-tags">
+                    <span class="service-tag">✓ Dine-in</span>
+                    <span class="service-tag">✓ Kerbside Pickup</span>
+                    <span class="service-tag">✓ Delivery</span>
+                    <span class="service-tag">✓ Free Wi-Fi</span>
+                </div>
+                <ul class="info-list">
+                    <li>
+                        <span>📍</span>
+                        <div>
+                            <strong>Address</strong>
+                            33, 12th Cross Rd, Indira Nagar II Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
+                        </div>
+                    </li>
+                    <li>
+                        <span>🕒</span>
+                        <div>
+                            <strong>Hours</strong>
+                            Open Daily · 11:30 AM to 11:30 PM
+                        </div>
+                    </li>
+                    <li>
+                        <span>📞</span>
+                        <div>
+                            <strong>Phone & WhatsApp</strong>
+                            +91 80500 09844
+                        </div>
+                    </li>
+                    <li>
+                        <span>📸</span>
+                        <div>
+                            <strong>Instagram</strong>
+                            @murumuru.blr
+                        </div>
+                    </li>
+                </ul>
+                <div class="visit-buttons">
+                    <a href="https://wa.me." target="_blank" class="btn btn-whatsapp">💬 Message on WhatsApp</a>
+                    <a href="https://google.com" target="_blank" class="btn">Get Directions</a>
+                </div>
+            </div>
+            <div class="map-box">
+                <iframe 
+                    src="https://google.com" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me." target="_blank" class="whatsapp-float">
+        💬 WhatsApp Us
+    </a>
+
+    <footer>
+        <p>© 2026 Mūru Mūru · 12th Cross, Indiranagar, Bengaluru · Follow us on <a href="https://instagram.com" target="_blank">Instagram</a></p>
+    </footer>
+
+</body>
+</html>
+
